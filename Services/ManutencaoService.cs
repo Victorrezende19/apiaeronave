@@ -27,7 +27,7 @@ public class ManutencaoService{
         _context.SaveChanges();
 
 
-        
+
 
         return new DetalhesManutencaoViewModel
         (
@@ -49,7 +49,7 @@ public class ManutencaoService{
 
         public DetalhesManutencaoViewModel? ListarManutencaoPeloId(int id){
 
-        var manutencao = _context.Manutencao.Find(id);
+        var manutencao = _context.Manutencoes.Find(id);
         if(manutencao != null){
             return new DetalhesManutencaoViewModel(
                 manutencao.DataHora,
@@ -80,7 +80,7 @@ public class ManutencaoService{
                   manutencao.AeronaveId = dados.AeronaveId;
                   _context.Update(manutencao);
                   _context.SaveChanges();
-                  return new DetalhesManutencaoViewModel(manutencao.Id,manutencao.DataHora,manutencao.Observacao,manutencao.AeronaveId);
+                  return new DetalhesManutencaoViewModel(manutencao.DataHora,manutencao.Observacao,manutencao.AeronaveId);
 
               }
               return null; 
